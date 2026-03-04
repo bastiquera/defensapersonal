@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Inscritos Defensa Personal</title>
+  <!-- No indexar en buscadores -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0e10;
+      --surface: #141618;
+      --surface2: #1c1e22;
+      --border: #2a2d34;
+      --accent: #e8c84a;
+      --text: #e8e9ea;
+      --text-muted: #8a8f9a;
+      --green: #25D366;
+      --orange: #e67e22;
+      --red: #c0392b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      max-width: 1300px;
+      margin: 0 auto 36px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    .header-left h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .header-left p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .header-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(232,200,74,0.1);
+      border: 1px solid rgba(232,200,74,0.3);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 3px;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      max-width: 1300px;
+      margin: 0 auto 28px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 28px;
+      min-width: 160px;
+    }
+    .stat-card .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .stat-card .stat-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      line-height: 1;
+      color: var(--text);
+    }
+    .stat-card.green .stat-value  { color: var(--green); }
+    .stat-card.orange .stat-value { color: var(--orange); }
+    .stat-card.accent .stat-value { color: var(--accent); }
+
+    /* ── FILTERS ── */
+    .filters {
+      max-width: 1300px;
+      margin: 0 auto 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+    .filter-btn.active-green  { background: var(--green);  color: #fff; border-color: var(--green); }
+    .filter-btn.active-orange { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+    /* ── TABLE ── */
+    .table-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+    thead {
+      background: var(--surface2);
+      border-bottom: 2px solid var(--accent);
+    }
+    thead th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 14px 18px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--surface2); }
+    tbody td {
+      padding: 14px 18px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+    td.num {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      width: 40px;
+    }
+    td.nombre { font-weight: 600; }
+    td.muted { color: var(--text-muted); font-size: 14px; }
+
+    /* ── BADGES ESTADO ── */
+    .badge-estado {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 3px;
+    }
+    .badge-pagado {
+      background: rgba(37,211,102,0.12);
+      color: var(--green);
+      border: 1px solid rgba(37,211,102,0.3);
+    }
+    .badge-abono {
+      background: rgba(230,126,34,0.12);
+      color: var(--orange);
+      border: 1px solid rgba(230,126,34,0.3);
+    }
+    .badge-pendiente {
+      background: rgba(192,57,43,0.12);
+      color: var(--red);
+      border: 1px solid rgba(192,57,43,0.3);
+    }
+
+    /* ── MONTO ── */
+    td.monto { font-weight: 700; font-size: 15px; }
+
+    /* ── LINK BOLETA ── */
+    .btn-boleta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(232,200,74,0.3);
+      background: rgba(232,200,74,0.06);
+      padding: 6px 14px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-boleta:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    .btn-boleta svg { flex-shrink: 0; }
+
+    /* ── TOTAL ── */
+    .total-bar {
+      max-width: 1300px;
+      margin: 20px auto 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 28px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .total-item { text-align: right; }
+    .total-item .tl { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+    .total-item .tv { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--text); }
+    .total-item.green .tv { color: var(--green); }
+
+    /* ── HIDDEN ROW ── */
+    tr.hidden-row { display: none; }
+
+    /* ── INSTRUCCIONES EDICIÓN ── */
+    .edit-note {
+      max-width: 1300px;
+      margin: 28px auto 0;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 18px 24px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .edit-note strong { color: var(--accent); }
+    .edit-note code {
+      background: rgba(255,255,255,0.06);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 13px;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <h1>Panel de Inscritos</h1>
+    <p>Curso Defensa Personal Táctica y Urbana — Viernes 3 de abril</p>
+  </div>
+  <div class="header-badge">🔒 Página privada</div>
+</div>
+
+<!-- STATS -->
+<div class="stats" id="statsBar">
+  <div class="stat-card accent">
+    <div class="stat-label">Total inscritos</div>
+    <div class="stat-value" id="statTotal">0</div>
+  </div>
+  <div class="stat-card green">
+    <div class="stat-label">Pagado completo</div>
+    <div class="stat-value" id="statPagado">0</div>
+  </div>
+  <div class="stat-card orange">
+    <div class="stat-label">Con abono</div>
+    <div class="stat-value" id="statAbono">0</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Cupos restantes (de 15)</div>
+    <div class="stat-value" id="statCupos">0</div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filtrar('todos', this)">Todos</button>
+  <button class="filter-btn" onclick="filtrar('PAGADO', this)">Solo pagados</button>
+  <button class="filter-btn" onclick="filtrar('ABONO', this)">Solo abonos</button>
+</div>
+
+<!-- TABLA -->
+<div class="table-wrap">
+  <table id="tablaInscritos">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>RUT</th>
+        <th>Fono</th>
+        <th>Email</th>
+        <th>Abono</th>
+        <th>Estado</th>
+        <th>Boleta / Comprobante</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <!-- ══════════════════════════════════════════════════════
+           DATOS — Edita aquí para agregar o modificar inscritos
+           Estado puede ser: PAGADO | ABONO | PENDIENTE
+           ══════════════════════════════════════════════════════ -->
+      <tr data-estado="PAGADO">
+        <td class="num">1</td>
+        <td class="nombre">Conzuelo Vega Gutiérrez</td>
+        <td class="muted">16406439-5</td>
+        <td class="muted">56 937348541</td>
+        <td class="muted">conzuelo.vega17@gmail.com</td>
+        <td class="monto">$25.000</td>
+        <td><span class="badge-estado badge-pagado">Pagado</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/1Q9_QSIyU291wRlw5tECoWYeKxZNNMsNh/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      <tr data-estado="PAGADO">
+        <td class="num">2</td>
+        <td class="nombre">Martín Alonso Cataldo Vega</td>
+        <td class="muted">23577804-1</td>
+        <td class="muted">56 937348541</td>
+        <td class="muted">conzuelo.vega17@gmail.com</td>
+        <td class="monto">$25.000</td>
+        <td><span class="badge-estado badge-pagado">Pagado</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/19smyG6KIT-TP7Xyv5odOCw51OcFjsUT8/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      <tr data-estado="ABONO">
+        <td class="num">3</td>
+        <td class="nombre">Patricia Salas Riveros</td>
+        <td class="muted">12641677-6</td>
+        <td class="muted">56 9 8227 7105</td>
+        <td class="muted">patiluandrea@gmail.com</td>
+        <td class="monto">$5.000</td>
+        <td><span class="badge-estado badge-abono">Abono</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/1zKXIbLf589XJ5EdBU4XHEhM4G9cFwG7-/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      <tr data-estado="ABONO">
+        <td class="num">4</td>
+        <td class="nombre">Luis Alberto Navarrete Gallardo</td>
+        <td class="muted">18045842-5</td>
+        <td class="muted">56 9 5483 1271</td>
+        <td class="muted">bernardogallardo608@gmail.com</td>
+        <td class="monto">$5.000</td>
+        <td><span class="badge-estado badge-abono">Abono</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/1bIk_MB7wh_eTGB3xbbOh1xJoEJyMhkla/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      <tr data-estado="ABONO">
+        <td class="num">5</td>
+        <td class="nombre">Felipe Quinteros Ojeda</td>
+        <td class="muted">18976629-7</td>
+        <td class="muted">56 9 2753 6818</td>
+        <td class="muted">Fquinteroso@metro.cl</td>
+        <td class="monto">$5.000</td>
+        <td><span class="badge-estado badge-abono">Abono</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/1kFawcyUGbfqsM7Cf_aJfvLAgXGHEfAvH/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      <tr data-estado="ABONO">
+        <td class="num">6</td>
+        <td class="nombre">Gerardo Cárdenas</td>
+        <td class="muted">16746609-5</td>
+        <td class="muted">56 9 4417 0912</td>
+        <td class="muted">Gerardo.cardenasv@gmail.com</td>
+        <td class="monto">$5.000</td>
+        <td><span class="badge-estado badge-abono">Abono</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/1O2D8sW2zJxzUR-PlnCY-Ru461WtJ6BDo/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      <tr data-estado="PAGADO">
+        <td class="num">7</td>
+        <td class="nombre">Miguel González</td>
+        <td class="muted">20207435-9</td>
+        <td class="muted">56 9 3613 0938</td>
+        <td class="muted">mg45251@gmail.com</td>
+        <td class="monto">$25.000</td>
+        <td><span class="badge-estado badge-pagado">Pagado</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/1muDYV7fsHyj7pQeTcWcfxIS8KY7y9K24/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      <tr data-estado="ABONO">
+        <td class="num">8</td>
+        <td class="nombre">Diego</td>
+        <td class="muted">—</td>
+        <td class="muted">56 9 3614 7752</td>
+        <td class="muted">—</td>
+        <td class="monto">$5.000</td>
+        <td><span class="badge-estado badge-abono">Abono</span></td>
+        <td><a class="btn-boleta" href="https://drive.google.com/file/d/1eJwbWjCu7PYEjtuWGybe0ZtyFndNwfNq/view?usp=drive_link" target="_blank" rel="noopener"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+
+      <!-- ══ AGREGA MÁS FILAS AQUÍ ══
+      <tr data-estado="ABONO">
+        <td class="num">9</td>
+        <td class="nombre">Nombre Apellido</td>
+        <td class="muted">RUT</td>
+        <td class="muted">Fono</td>
+        <td class="muted">email@correo.com</td>
+        <td class="monto">$5.000</td>
+        <td><span class="badge-estado badge-abono">Abono</span></td>
+        <td><a class="btn-boleta" href="LINK_DRIVE" target="_blank" rel="noopener">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+      </tr>
+      ══ FIN ZONA DE EDICIÓN ══ -->
+    </tbody>
+  </table>
+</div>
+
+<!-- TOTAL BAR -->
+<div class="total-bar">
+  <div class="total-item">
+    <div class="tl">Total abonos recibidos</div>
+    <div class="tv" id="totalAbonos">$0</div>
+  </div>
+  <div class="total-item green">
+    <div class="tl">Total pagos completos</div>
+    <div class="tv" id="totalPagados">$0</div>
+  </div>
+  <div class="total-item">
+    <div class="tl">Total recaudado</div>
+    <div class="tv" id="totalGeneral">$0</div>
+  </div>
+</div>
+
+<!-- NOTA EDICIÓN -->
+<div class="edit-note">
+  <strong>📝 Cómo agregar un inscrito:</strong> Abre este archivo en un editor de texto, busca el comentario <code>&lt;!-- ══ AGREGA MÁS FILAS AQUÍ ══</code> y copia el bloque de ejemplo que está debajo. Cambia el estado a <code>PAGADO</code> o <code>ABONO</code> según corresponda y actualiza el badge a <code>badge-pagado</code> o <code>badge-abono</code>.
+</div>
+
+<script>
+  // ── CALCULAR STATS Y TOTALES ──
+  function calcular() {
+    const filas = document.querySelectorAll('#tbody tr');
+    let total = 0, pagados = 0, abonos = 0, sumaPagado = 0, sumaAbono = 0;
+
+    filas.forEach(tr => {
+      const estado = tr.dataset.estado;
+      const montoTxt = tr.querySelector('.monto')?.textContent || '$0';
+      const monto = parseInt(montoTxt.replace(/\D/g, '')) || 0;
+      total++;
+      if (estado === 'PAGADO') { pagados++; sumaPagado += monto; }
+      if (estado === 'ABONO')  { abonos++;  sumaAbono  += monto; }
+    });
+
+    document.getElementById('statTotal').textContent  = total;
+    document.getElementById('statPagado').textContent = pagados;
+    document.getElementById('statAbono').textContent  = abonos;
+    document.getElementById('statCupos').textContent  = Math.max(0, 15 - total);
+    document.getElementById('totalPagados').textContent = '$' + sumaPagado.toLocaleString('es-CL');
+    document.getElementById('totalAbonos').textContent  = '$' + sumaAbono.toLocaleString('es-CL');
+    document.getElementById('totalGeneral').textContent = '$' + (sumaPagado + sumaAbono).toLocaleString('es-CL');
+  }
+
+  // ── FILTRO ──
+  function filtrar(estado, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active','active-green','active-orange'));
+    if (estado === 'PAGADO') btn.classList.add('active-green');
+    else if (estado === 'ABONO') btn.classList.add('active-orange');
+    else btn.classList.add('active');
+
+    document.querySelectorAll('#tbody tr').forEach(tr => {
+      if (estado === 'todos' || tr.dataset.estado === estado) {
+        tr.classList.remove('hidden-row');
+      } else {
+        tr.classList.add('hidden-row');
+      }
+    });
+  }
+
+  calcular();
+</script>
+</body>
+</html>
