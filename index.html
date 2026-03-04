@@ -383,6 +383,83 @@
       box-shadow: 0 12px 40px rgba(37,211,102,0.42);
     }
 
+    /* ── CUENTA BANCARIA ── */
+    .cuenta-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 32px;
+      margin: 24px 0 28px;
+    }
+    .cuenta-titulo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .cuenta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 500px) { .cuenta-grid { grid-template-columns: 1fr; } }
+    .cuenta-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cuenta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .cuenta-valor {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .cuenta-pasos {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    .paso {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+    .paso strong { color: var(--text); }
+    .paso-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: rgba(232,200,74,0.12);
+      border: 1px solid rgba(232,200,74,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
     /* ── BLOQUE INFORMATIVO ── */
     .info-extra {
       background: var(--surface2);
@@ -570,7 +647,7 @@
       <p class="hero-subtitle">
         Herramientas prácticas de prevención, lectura del entorno y toma de decisiones bajo presión, orientadas a situaciones reales de riesgo urbano.
       </p>
-      <a class="btn-cta" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%203%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener">
+      <a class="btn-cta" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%2010%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.543 5.871L.057 23.857l6.17-1.617A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.376l-.36-.214-3.728.977.995-3.638-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
         Asegurar mi cupo
       </a>
@@ -674,7 +751,7 @@
   <div class="container">
     <div class="fade-up">
       <div class="section-label">Inscripción</div>
-      <h2 class="section-title">Asegura tu cupo –<br>Viernes 3 de abril</h2>
+      <h2 class="section-title">Asegura tu cupo –<br>Viernes 10 de abril</h2>
       <div class="divider"></div>
     </div>
 
@@ -693,12 +770,49 @@
       </div>
 
       <div class="deposito-box">
-        💵 Para asegurar tu cupo basta con realizar un <strong>depósito de $5.000</strong>. Este monto se descuenta del valor total al momento del evento.
+        💵 Para asegurar tu cupo realiza un <strong>depósito de $5.000</strong> a los siguientes datos. Este monto se descuenta del valor total al momento del evento.
       </div>
 
-      <p class="cupos-cta-text">Para asegurar tu cupo, <strong>haz clic en el siguiente enlace</strong> y te atendemos directamente por WhatsApp:</p>
+      <!-- DATOS BANCARIOS -->
+      <div class="cuenta-box">
+        <div class="cuenta-titulo">📋 Datos para el depósito</div>
+        <div class="cuenta-grid">
+          <div class="cuenta-item">
+            <span class="cuenta-label">Nombre</span>
+            <span class="cuenta-valor">Daniel Arismendi Tepper</span>
+          </div>
+          <div class="cuenta-item">
+            <span class="cuenta-label">RUT</span>
+            <span class="cuenta-valor">11.296.054-6</span>
+          </div>
+          <div class="cuenta-item">
+            <span class="cuenta-label">Banco</span>
+            <span class="cuenta-valor">Banco Estado</span>
+          </div>
+          <div class="cuenta-item">
+            <span class="cuenta-label">Tipo de cuenta</span>
+            <span class="cuenta-valor">Cuenta RUT / Cuenta Vista</span>
+          </div>
+        </div>
+        <div class="cuenta-pasos">
+          <div class="paso">
+            <span class="paso-num">1</span>
+            <span>Realiza el depósito de <strong>$5.000</strong> a la cuenta indicada.</span>
+          </div>
+          <div class="paso">
+            <span class="paso-num">2</span>
+            <span>Toma captura o foto del comprobante.</span>
+          </div>
+          <div class="paso">
+            <span class="paso-num">3</span>
+            <span>Envía el comprobante por WhatsApp haciendo clic en el botón de abajo.</span>
+          </div>
+        </div>
+      </div>
 
-      <a class="btn-wa-personal" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%203%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener">
+      <p class="cupos-cta-text">Una vez realizado el depósito, <strong>envía tu comprobante por WhatsApp</strong> para confirmar tu cupo:</p>
+
+      <a class="btn-wa-personal" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%2010%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.543 5.871L.057 23.857l6.17-1.617A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.376l-.36-.214-3.728.977.995-3.638-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
         Asegurar mi cupo por WhatsApp
       </a>
@@ -730,7 +844,7 @@
           <div class="event-card-icon">📅</div>
           <h3>Fecha</h3>
         </div>
-        <p>Viernes 3 de abril</p>
+        <p>Viernes 10 de abril</p>
         <small>Fecha exacta confirmada — contáctanos por WhatsApp para más detalles.</small>
       </div>
       <div class="event-card fade-up">
@@ -756,7 +870,7 @@
       <div class="section-label" style="justify-content: center; display: block; text-align: center;">¿Listo?</div>
       <h2 class="section-title">Los cupos son<br>limitados</h2>
       <p>Contáctanos directamente por WhatsApp para reservar tu cupo, coordinar el depósito y resolver cualquier duda.</p>
-      <a class="btn-wa-personal" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%203%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener" style="margin: 0 auto;">
+      <a class="btn-wa-personal" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%2010%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener" style="margin: 0 auto;">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.543 5.871L.057 23.857l6.17-1.617A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.376l-.36-.214-3.728.977.995-3.638-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
         Asegurar mi cupo por WhatsApp
       </a>
@@ -767,13 +881,13 @@
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="container">
-    <p>© Curso Defensa Personal Táctica y Urbana — <span>Viernes 3 de abril · Cupos limitados.</span></p>
+    <p>© Curso Defensa Personal Táctica y Urbana — <span>Viernes 10 de abril · Cupos limitados.</span></p>
   </div>
 </footer>
 
 <!-- STICKY -->
 <div class="sticky-cta" id="stickyCta">
-  <a class="sticky-btn" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%203%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener">
+  <a class="sticky-btn" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%2010%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.543 5.871L.057 23.857l6.17-1.617A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.376l-.36-.214-3.728.977.995-3.638-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
     Asegurar cupo
   </a>
