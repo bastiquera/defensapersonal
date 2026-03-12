@@ -33,8 +33,7 @@
     /* HERO */
     #inicio{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
     .hbg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(200,60,40,.07) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 80%,rgba(232,200,74,.05) 0%,transparent 50%),repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,255,255,.013) 60px,rgba(255,255,255,.013) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,.013) 60px,rgba(255,255,255,.013) 61px)}
-    .hslash{position:absolute;right:-60px;top:0;bottom:0;width:52%;background:var(--surface);transform:skewX(-8deg);z-index:0;border-left:3px solid var(--red)}
-    @media(max-width:768px){.hslash{display:none}}
+
     .hinner{position:relative;z-index:1;max-width:580px}
     .eye{display:inline-flex;align-items:center;gap:8px;background:rgba(232,200,74,.1);border:1px solid rgba(232,200,74,.3);border-radius:2px;padding:5px 13px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
     .eye::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
@@ -126,16 +125,12 @@
 
 <!-- HERO -->
 <section id="inicio">
-  <div class="hbg"></div><div class="hslash"></div>
+  <div class="hbg"></div>
   <div class="c">
     <div class="hinner">
       <div class="eye">Jornada Intensiva · Viernes 10 de abril</div>
       <h1 class="htitle">Defensa<br>Personal<br><em>Táctica</em><br>y Urbana</h1>
       <p class="hsub">Herramientas prácticas de prevención, lectura del entorno y toma de decisiones bajo presión ante situaciones reales de riesgo urbano.</p>
-      <a class="btn" href="https://api.whatsapp.com/send?phone=56942534098&text=Hola%20quiero%20asegurar%20mi%20cupo%20para%20el%20viernes%2010%20de%20abril%20clase%20de%20defensa%20personal%20t%C3%A1ctica%20y%20urbana." target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.563 4.14 1.543 5.871L.057 23.857l6.17-1.617A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.376l-.36-.214-3.728.977.995-3.638-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
-        Asegurar mi cupo
-      </a>
       <div class="tags">
         <span class="tag">Sin requisitos previos</span>
         <span class="tag">Todo público</span>
@@ -145,31 +140,8 @@
   </div>
 </section>
 
-<!-- EL CURSO -->
-<section id="curso" class="sec alt">
-  <div class="c">
-    <div class="fu">
-      <div class="lbl">El Programa</div>
-      <h2>¿De qué trata el curso?</h2>
-      <div class="bar"></div>
-      <p style="color:var(--muted);max-width:640px">Dirigido a <strong style="color:var(--text)">cualquier persona</strong>, con o sin experiencia. En una sola jornada intensiva aprenderás fundamentos tácticos y prácticos para actuar con mayor criterio ante situaciones de riesgo urbano. También orientado a quienes trabajan en <strong style="color:var(--text)">seguridad pública o privada</strong>.</p>
-    </div>
-    <div class="mods fu">
-      <div class="mod"><div class="mnum">01</div><div><h3>Prevención y hábitos</h3><p>Reduce tu exposición al riesgo antes de cualquier incidente.</p></div></div>
-      <div class="mod"><div class="mnum">02</div><div><h3>Lectura del entorno</h3><p>Detecta señales de riesgo en espacios urbanos cotidianos.</p></div></div>
-      <div class="mod"><div class="mnum">03</div><div><h3>Decisiones bajo presión</h3><p>Activa el pensamiento claro cuando el estrés intenta bloquearte.</p></div></div>
-      <div class="mod"><div class="mnum">04</div><div><h3>Defensa personal aplicada</h3><p>Fundamentos adaptados a situaciones reales en entorno urbano.</p></div></div>
-      <div class="mod"><div class="mnum">05</div><div><h3>Protección personal y familiar</h3><p>Estrategias para resguardar tu integridad y la de quienes te acompañan.</p></div></div>
-    </div>
-    <div class="cert fu">
-      <span>📋</span>
-      <p><strong>Certificado de participación</strong> disponible para quienes trabajen en seguridad privada. Puede contribuir a mejorar tus oportunidades laborales.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ASEGURA TU CUPO -->
-<section id="cupos" class="sec">
+<section id="cupos" class="sec alt">
   <div class="c">
     <div class="fu">
       <div class="lbl">Inscripción</div>
@@ -214,6 +186,29 @@
         </div>
         <div class="note">Si trabajas en seguridad y ese día te corresponde turno, <strong>avisa con al menos un mes de anticipación</strong> a tu empresa informando que participarás en una certificación.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- EL CURSO -->
+<section id="curso" class="sec">
+  <div class="c">
+    <div class="fu">
+      <div class="lbl">El Programa</div>
+      <h2>¿De qué trata el curso?</h2>
+      <div class="bar"></div>
+      <p style="color:var(--muted);max-width:640px">Dirigido a <strong style="color:var(--text)">cualquier persona</strong>, con o sin experiencia. En una sola jornada intensiva aprenderás fundamentos tácticos y prácticos para actuar con mayor criterio ante situaciones de riesgo urbano. También orientado a quienes trabajan en <strong style="color:var(--text)">seguridad pública o privada</strong>.</p>
+    </div>
+    <div class="mods fu">
+      <div class="mod"><div class="mnum">01</div><div><h3>Prevención y hábitos</h3><p>Reduce tu exposición al riesgo antes de cualquier incidente.</p></div></div>
+      <div class="mod"><div class="mnum">02</div><div><h3>Lectura del entorno</h3><p>Detecta señales de riesgo en espacios urbanos cotidianos.</p></div></div>
+      <div class="mod"><div class="mnum">03</div><div><h3>Decisiones bajo presión</h3><p>Activa el pensamiento claro cuando el estrés intenta bloquearte.</p></div></div>
+      <div class="mod"><div class="mnum">04</div><div><h3>Defensa personal aplicada</h3><p>Fundamentos adaptados a situaciones reales en entorno urbano.</p></div></div>
+      <div class="mod"><div class="mnum">05</div><div><h3>Protección personal y familiar</h3><p>Estrategias para resguardar tu integridad y la de quienes te acompañan.</p></div></div>
+    </div>
+    <div class="cert fu">
+      <span>📋</span>
+      <p><strong>Certificado de participación</strong> disponible para quienes trabajen en seguridad privada. Puede contribuir a mejorar tus oportunidades laborales.</p>
     </div>
   </div>
 </section>
