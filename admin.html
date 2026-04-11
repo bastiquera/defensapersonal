@@ -7,46 +7,54 @@
   <meta name="robots" content="noindex, nofollow" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <style>
-    :root{--bg:#0d0e10;--surface:#141618;--surface2:#1c1e22;--border:#2a2d34;--accent:#e8c84a;--text:#e8e9ea;--muted:#8a8f9a;--green:#25D366;--orange:#e67e22;--red:#c0392b}
+    :root{--bg:#0d0e10;--surface:#141618;--surface2:#1c1e22;--border:#2a2d34;--accent:#e8c84a;--text:#e8e9ea;--muted:#8a8f9a;--green:#25D366;--orange:#e67e22;--red:#c0392b;--blue:#4a9eed;--purple:#a78bfa}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-size:15px;min-height:100vh;padding:38px 22px 80px}
-    .hdr{max-width:1300px;margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px;border-bottom:1px solid var(--border);padding-bottom:22px}
+    .hdr{max-width:1400px;margin:0 auto 32px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px;border-bottom:1px solid var(--border);padding-bottom:22px}
     .hdr h1{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:2px;color:var(--accent);line-height:1}
     .hdr p{color:var(--muted);font-size:14px;margin-top:3px}
     .hbadge{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:rgba(232,200,74,.1);border:1px solid rgba(232,200,74,.3);color:var(--accent);padding:6px 14px;border-radius:3px}
-    .stats{max-width:1300px;margin:0 auto 24px;display:flex;gap:14px;flex-wrap:wrap}
+    .stats{max-width:1400px;margin:0 auto 24px;display:flex;gap:14px;flex-wrap:wrap}
     .sc{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 26px;min-width:150px}
     .sc .sl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
     .sc .sv{font-family:'Bebas Neue',sans-serif;font-size:34px;line-height:1;color:var(--text)}
     .sc.g .sv{color:var(--green)}.sc.o .sv{color:var(--orange)}.sc.a .sv{color:var(--accent)}
-    .filters{max-width:1300px;margin:0 auto 18px;display:flex;gap:10px;flex-wrap:wrap}
+    .filters{max-width:1400px;margin:0 auto 18px;display:flex;gap:10px;flex-wrap:wrap}
     .fb{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--surface2);border:1px solid var(--border);color:var(--muted);padding:7px 16px;border-radius:3px;cursor:pointer;transition:all .2s}
     .fb:hover,.fb.act{background:var(--accent);color:#000;border-color:var(--accent)}
     .fb.ag{background:var(--green);color:#fff;border-color:var(--green)}
     .fb.ao{background:var(--orange);color:#fff;border-color:var(--orange)}
-    .tw{max-width:1300px;margin:0 auto;overflow-x:auto;border-radius:8px;border:1px solid var(--border)}
-    table{width:100%;border-collapse:collapse;min-width:900px}
+    .tw{max-width:1400px;margin:0 auto;overflow-x:auto;border-radius:8px;border:1px solid var(--border)}
+    table{width:100%;border-collapse:collapse;min-width:1050px}
     thead{background:var(--surface2);border-bottom:2px solid var(--accent)}
     thead th{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:13px 16px;text-align:left;white-space:nowrap}
     tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
     tbody tr:last-child{border-bottom:none}
     tbody tr:hover{background:var(--surface2)}
-    tbody td{padding:13px 16px;color:var(--text);vertical-align:middle}
+    tbody td{padding:12px 16px;color:var(--text);vertical-align:middle}
     td.n{color:var(--muted);font-size:13px;font-weight:600;width:38px}
     td.nom{font-weight:600}
     td.mu{color:var(--muted);font-size:14px}
     .bs{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:3px}
     .bp{background:rgba(37,211,102,.12);color:var(--green);border:1px solid rgba(37,211,102,.3)}
     .ba{background:rgba(230,126,34,.12);color:var(--orange);border:1px solid rgba(230,126,34,.3)}
+    .bm{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:3px}
+    .bt{background:rgba(74,158,237,.12);color:var(--blue);border:1px solid rgba(74,158,237,.3)}
+    .be{background:rgba(232,200,74,.10);color:var(--accent);border:1px solid rgba(232,200,74,.3)}
+    .bx{background:rgba(167,139,250,.12);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
     td.mo{font-weight:700;font-size:15px}
-    .bb{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(232,200,74,.3);background:rgba(232,200,74,.06);padding:5px 13px;border-radius:3px;text-decoration:none;transition:all .2s;white-space:nowrap}
+    .receipts{display:flex;flex-direction:column;gap:4px}
+    .bb{display:inline-flex;align-items:center;gap:5px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(232,200,74,.3);background:rgba(232,200,74,.06);padding:4px 10px;border-radius:3px;text-decoration:none;transition:all .2s;white-space:nowrap}
     .bb:hover{background:var(--accent);color:#000;border-color:var(--accent)}
-    .totbar{max-width:1300px;margin:18px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 26px;display:flex;justify-content:flex-end;align-items:center;gap:30px;flex-wrap:wrap}
+    .totbar{max-width:1400px;margin:18px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 26px;display:flex;justify-content:flex-end;align-items:center;gap:30px;flex-wrap:wrap}
     .ti{text-align:right}.ti .tl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}.ti .tv{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--text)}
     .ti.g .tv{color:var(--green)}
-    .enote{max-width:1300px;margin:24px auto 0;background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;padding:16px 22px;font-size:14px;color:var(--muted);line-height:1.7}
+    .enote{max-width:1400px;margin:24px auto 0;background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;padding:16px 22px;font-size:14px;color:var(--muted);line-height:1.7}
     .enote strong{color:var(--accent)}.enote code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:3px;font-size:13px;color:var(--text)}
     tr.hr{display:none}
+    tr.no-asistio{background:rgba(192,57,43,.10)!important;border-left:3px solid var(--red)}
+    tr.no-asistio:hover{background:rgba(192,57,43,.18)!important}
+    tr.no-asistio td.nom::after{content:" — No asistió";font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-left:8px;font-family:'Barlow Condensed',sans-serif}
   </style>
 </head>
 <body>
@@ -60,7 +68,7 @@
   <div class="sc a"><div class="sl">Total inscritos</div><div class="sv" id="sT">0</div></div>
   <div class="sc g"><div class="sl">Pagado completo</div><div class="sv" id="sP">0</div></div>
   <div class="sc o"><div class="sl">Con abono</div><div class="sv" id="sA">0</div></div>
-  <div class="sc"><div class="sl">Cupos restantes (de 15)</div><div class="sv" id="sC">0</div></div>
+  <div class="sc"><div class="sl">Cupos restantes (de 20)</div><div class="sv" id="sC">0</div></div>
 </div>
 
 <div class="filters">
@@ -72,104 +80,145 @@
 <div class="tw">
   <table id="tbl">
     <thead>
-      <tr><th>#</th><th>Nombre</th><th>RUT</th><th>Fono</th><th>Email</th><th>Abono</th><th>Estado</th><th>Boleta / Comprobante</th></tr>
+      <tr><th>#</th><th>Nombre</th><th>RUT</th><th>Fono</th><th>Email</th><th>Abono</th><th>Estado</th><th>Método</th><th>Boleta / Comprobante</th></tr>
     </thead>
     <tbody id="tb">
+
       <tr data-estado="PAGADO">
         <td class="n">1</td><td class="nom">Conzuelo Andrea Vega Gutiérrez</td><td class="mu">16406439-5</td><td class="mu">56 937348541</td><td class="mu">conzuelo.vega17@gmail.com</td><td class="mo">$25.000</td>
-        <td><span class="bs bp">Pagado</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1Q9_QSIyU291wRlw5tECoWYeKxZNNMsNh/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1Q9_QSIyU291wRlw5tECoWYeKxZNNMsNh/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
+
       <tr data-estado="PAGADO">
         <td class="n">2</td><td class="nom">Martín Alonso Cataldo Vega</td><td class="mu">23577804-1</td><td class="mu">56 937348541</td><td class="mu">conzuelo.vega17@gmail.com</td><td class="mo">$25.000</td>
-        <td><span class="bs bp">Pagado</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/19smyG6KIT-TP7Xyv5odOCw51OcFjsUT8/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/19smyG6KIT-TP7Xyv5odOCw51OcFjsUT8/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
-      <tr data-estado="ABONO">
-        <td class="n">3</td><td class="nom">Patricia Andrea Salas Riveros</td><td class="mu">12641677-6</td><td class="mu">56 9 8227 7105</td><td class="mu">patiluandrea@gmail.com</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1zKXIbLf589XJ5EdBU4XHEhM4G9cFwG7-/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+
+      <tr data-estado="PAGADO">
+        <td class="n">3</td><td class="nom">Patricia Andrea Salas Riveros</td><td class="mu">12641677-6</td><td class="mu">56 9 8227 7105</td><td class="mu">patiluandrea@gmail.com</td><td class="mo">$30.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts">
+          <a class="bb" href="https://drive.google.com/file/d/1zKXIbLf589XJ5EdBU4XHEhM4G9cFwG7-/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a>
+          <a class="bb" href="https://drive.google.com/file/d/1bB5QbQfk_kpbvCafFXx9EDisYSdRRg1w/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 2</a>
+        </div></td>
       </tr>
-      <tr data-estado="ABONO">
-        <td class="n">4</td><td class="nom">Luis Alberto Navarrete Gallardo</td><td class="mu">18045842-5</td><td class="mu">56 9 5483 1271</td><td class="mu">bernardogallardo608@gmail.com</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1bIk_MB7wh_eTGB3xbbOh1xJoEJyMhkla/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+
+      <tr data-estado="PAGADO">
+        <td class="n">4</td><td class="nom">Luis Alberto Navarrete Gallardo</td><td class="mu">18045842-5</td><td class="mu">56 9 5483 1271</td><td class="mu">bernardogallardo608@gmail.com</td><td class="mo">$25.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts">
+          <a class="bb" href="https://drive.google.com/file/d/1bIk_MB7wh_eTGB3xbbOh1xJoEJyMhkla/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a>
+          <a class="bb" href="https://drive.google.com/file/d/1ds3VBfiT6QZAgeJm1b7ldFCdJvfYOuuE/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 2</a>
+        </div></td>
       </tr>
-      <tr data-estado="ABONO">
+
+      <tr data-estado="ABONO" class="no-asistio">
         <td class="n">5</td><td class="nom">Felipe Andrés Quinteros Ojeda</td><td class="mu">18976629-7</td><td class="mu">56 9 2753 6818</td><td class="mu">Fquinteroso@metro.cl</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1kFawcyUGbfqsM7Cf_aJfvLAgXGHEfAvH/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td><span class="bs ba">Abono</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1kFawcyUGbfqsM7Cf_aJfvLAgXGHEfAvH/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
-      <tr data-estado="ABONO">
+
+      <tr data-estado="ABONO" class="no-asistio">
         <td class="n">6</td><td class="nom">Gerardo Cárdenas</td><td class="mu">16746609-5</td><td class="mu">56 9 4417 0912</td><td class="mu">Gerardo.cardenasv@gmail.com</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1O2D8sW2zJxzUR-PlnCY-Ru461WtJ6BDo/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td><span class="bs ba">Abono</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1O2D8sW2zJxzUR-PlnCY-Ru461WtJ6BDo/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
+
       <tr data-estado="PAGADO">
-        <td class="n">7</td><td class="nom">Miguel González</td><td class="mu">20207435-9</td><td class="mu">56 9 3613 0938</td><td class="mu">mg45251@gmail.com</td><td class="mo">$25.000</td>
-        <td><span class="bs bp">Pagado</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1muDYV7fsHyj7pQeTcWcfxIS8KY7y9K24/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td class="n">7</td><td class="nom">Miguel Angel González Gómez</td><td class="mu">20207435-9</td><td class="mu">56 9 3613 0938</td><td class="mu">mg45251@gmail.com</td><td class="mo">$25.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1muDYV7fsHyj7pQeTcWcfxlS8KY7y9K24/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
-      <tr data-estado="ABONO">
-        <td class="n">8</td><td class="nom">Diego Toledo</td><td class="mu">21.238.675-8</td><td class="mu">56 9 3614 7752</td><td class="mu">Diego.toledoibarra2102@gmail.com</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1eJwbWjCu7PYEjtuWGybe0ZtyFndNwfNq/view?usp=drive_link" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
-      </tr>
-      <tr data-estado="ABONO">
-        <td class="n">9</td><td class="nom">Alejandro Silva Leiva</td><td class="mu">13.239.291-9</td><td class="mu">56 9 8280 0269</td><td class="mu">asilva@aslintegral.cl</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1y5smcLFV1j1XbIYsIB5By2_WJmU-R0NF/view?usp=sharing" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
-      </tr>
+
       <tr data-estado="PAGADO">
-        <td class="n">10</td><td class="nom">Nicolás Bernardo Garay Torres</td><td class="mu">8115684-0</td><td class="mu">986665570</td><td class="mu"></td><td class="mo">$25.000</td>
-        <td><span class="bs bp">Pagado</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/185Yb2UKZfj1rwAtYoWyMD6WhaAj3hNz2/view?usp=sharing" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td class="n">8</td><td class="nom">Diego Matias Toledo Ibarra</td><td class="mu">21.238.675-8</td><td class="mu">56 9 3614 7752</td><td class="mu">Diego.toledoibarra2102@gmail.com</td><td class="mo">$25.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bx">Ef. / Trans.</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1eJwbWjCu7PYEjtuWGybe0ZtyFndNwfNq/view?usp=drive_link" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
+
       <tr data-estado="PAGADO">
-        <td class="n">11</td><td class="nom">Jaime Patricio Lopez Salazar</td><td class="mu">19.752.284-4</td><td class="mu">56 9 7938 6343</td><td class="mu"></td><td class="mo">$30.000</td>
-        <td><span class="bs bp">Pagado</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1l9x3KXxBXHVR00bmg40UTwoYBkNbI4km/view?usp=sharing" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td class="n">9</td><td class="nom">Alejandro Silva Leiva</td><td class="mu">13.239.291-9</td><td class="mu">56 9 8280 0269</td><td class="mu">asilva@aslintegral.cl</td><td class="mo">$25.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bx">Ef. / Trans.</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1y5smcLFV1j1XbIYsIB5By2_WJmU-R0NF/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
-      <tr data-estado="ABONO">
+
+      <tr data-estado="PAGADO">
+        <td class="n">10</td><td class="nom">Nicolás Bernardo Garay Torres</td><td class="mu">8115684-0</td><td class="mu">986665570</td><td class="mu">—</td><td class="mo">$25.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/185Yb2UKZfj1rwAtYoWyMD6WhaAj3hNz2/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
+      </tr>
+
+      <tr data-estado="PAGADO">
+        <td class="n">11</td><td class="nom">Jaime Patricio Lopez Salazar</td><td class="mu">19.752.284-4</td><td class="mu">56 9 7938 6343</td><td class="mu">—</td><td class="mo">$35.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1I9x3KXxBXHVR00bmg40UTwoYBkNbI4km/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
+      </tr>
+
+      <tr data-estado="ABONO" class="no-asistio">
         <td class="n">12</td><td class="nom">Ignacia Paredes Sempertegui</td><td class="mu">22.487.340-9</td><td class="mu">56 9 6487 1649</td><td class="mu">Ignacia.p.sempertegui@gmail.com</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/13rTLpTBEeIpRaqaDPIF4njVleiWpKxmT/view?usp=sharing" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td><span class="bs ba">Abono</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/13rTLpTBEeIpRaqaDPIF4njVIeiWpKxmT/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
-      <tr data-estado="ABONO">
-        <td class="n">13</td><td class="nom">Juan Abu Hanak Hadweh</td><td class="mu">15214679-5</td><td class="mu">56 9 6334 8122</td><td class="mu">abu.derecho@gmail.com</td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1_NHRv-7cfhkNgWzoGflWnRPgJlK0xg_z/view?usp=sharing" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+
+      <tr data-estado="PAGADO">
+        <td class="n">13</td><td class="nom">Juan Abu Hanak Hadweh</td><td class="mu">15214679-5</td><td class="mu">56 9 6334 8122</td><td class="mu">abu.derecho@gmail.com</td><td class="mo">$30.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bx">Ef. / Trans.</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1_NHRv-7cfhkNgWzoGfiWnRPgJIK0xg_z/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
       </tr>
-      <tr data-estado="ABONO">
-        <td class="n">14</td><td class="nom">Iñaki Andrés Telleria Hazbun</td><td class="mu">21862636-k</td><td class="mu">56 9 9504 6210</td><td class="mu"></td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1I1M4uHKfm-DOgvJSryLVk3WExLSusuDt/view?usp=sharing" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+
+      <tr data-estado="PAGADO">
+        <td class="n">14</td><td class="nom">Iñaki Andrés Telleria Hazbun</td><td class="mu">21862636-k</td><td class="mu">56 9 9504 6210</td><td class="mu">—</td><td class="mo">$30.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts">
+          <a class="bb" href="https://drive.google.com/file/d/1I1M4uHKfm-DOgvJSryLVk3WExLSusuDt/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a>
+          <a class="bb" href="https://drive.google.com/file/d/1cV0tnYZqW5Dq5NYaqvUvIigpxZdHqTKi/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 2</a>
+        </div></td>
       </tr>
-      <tr data-estado="ABONO">
-        <td class="n">15</td><td class="nom">Fernanda Sanchez</td><td class="mu">21.519.530-9</td><td class="mu">56 9 3641 0511</td><td class="mu"></td><td class="mo">$5.000</td>
-        <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="https://drive.google.com/file/d/1FjdffSKoW-CV-HvAC4ruwgo9m-G5oao9/view?usp=sharing" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+
+      <tr data-estado="PAGADO">
+        <td class="n">15</td><td class="nom">Fernanda Millaray Sánchez Segura</td><td class="mu">21.519.530-9</td><td class="mu">56 9 3641 0511</td><td class="mu">—</td><td class="mo">$30.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts">
+          <a class="bb" href="https://drive.google.com/file/d/1FjdffSKoW-CV-HvAC4ruwgo9m-G5oao9/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a>
+          <a class="bb" href="https://drive.google.com/file/d/1d5VIQxysSUW8wVRYF5OK94i09zg34dcU/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 2</a>
+        </div></td>
+      </tr>
+
+      <tr data-estado="PAGADO">
+        <td class="n">16</td><td class="nom">Williams Andrés Westermayer Romero</td><td class="mu">20.041.973-1</td><td class="mu">—</td><td class="mu">—</td><td class="mo">$35.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts"><a class="bb" href="https://drive.google.com/file/d/1RLY60SDPOhkCS3M8Z-RHS90FpAr1PwlF/view?usp=sharing" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a></div></td>
+      </tr>
+
+      <tr data-estado="PAGADO">
+        <td class="n">17</td><td class="nom">Ana María Garrido Cartes</td><td class="mu">11446260-8</td><td class="mu">—</td><td class="mu">—</td><td class="mo">$30.000</td>
+        <td><span class="bs bp">Pagado</span></td><td><span class="bm be">Efectivo</span></td>
+        <td><div class="receipts"><span style="color:var(--muted);font-size:13px">Sin comprobante</span></div></td>
       </tr>
 
       <!-- ══ AGREGA MÁS FILAS AQUÍ ══
       <tr data-estado="ABONO">
-        <td class="n">16</td><td class="nom">Nombre Apellido</td><td class="mu">RUT</td><td class="mu">Fono</td><td class="mu">email@correo.com</td><td class="mo">$5.000</td>
+        <td class="n">18</td><td class="nom">Nombre Apellido</td><td class="mu">RUT</td><td class="mu">Fono</td><td class="mu">email@correo.com</td><td class="mo">$5.000</td>
         <td><span class="bs ba">Abono</span></td>
-        <td><a class="bb" href="LINK_DRIVE" target="_blank"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Ver boleta</a></td>
+        <td><span class="bm bt">Transferencia</span></td>
+        <td><div class="receipts">
+          <a class="bb" href="LINK_DRIVE" target="_blank"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Boleta 1</a>
+        </div></td>
       </tr>
       ══ FIN ZONA DE EDICIÓN ══ -->
+
     </tbody>
   </table>
 </div>
 
 <div class="totbar">
-  <div class="ti"><div class="tl">Total abonos recibidos</div><div class="tv" id="tA">$0</div></div>
-  <div class="ti g"><div class="tl">Total pagos completos</div><div class="tv" id="tP">$0</div></div>
   <div class="ti"><div class="tl">Total recaudado</div><div class="tv" id="tG">$0</div></div>
 </div>
 
 <div class="enote">
-  <strong>📝 Cómo agregar un inscrito:</strong> Busca el comentario <code>&lt;!-- ══ AGREGA MÁS FILAS AQUÍ</code>, copia el bloque de ejemplo y actualiza los datos. Cambia <code>data-estado</code> a <code>PAGADO</code> o <code>ABONO</code> según corresponda.
+  <strong>📝 Cómo agregar un inscrito:</strong> Busca el comentario <code>&lt;!-- ══ AGREGA MÁS FILAS AQUÍ</code>, copia el bloque y actualiza. Método: <code>bt</code> = Transferencia · <code>be</code> = Efectivo · <code>bx</code> = Ef./Trans. Para 2 boletas, agrega un segundo <code>&lt;a class="bb"&gt;</code> dentro de <code>.receipts</code>.
 </div>
 
 <script>
@@ -186,9 +235,7 @@
     document.getElementById('sT').textContent=t;
     document.getElementById('sP').textContent=p;
     document.getElementById('sA').textContent=a;
-    document.getElementById('sC').textContent=Math.max(0,15-t);
-    document.getElementById('tP').textContent='$'+sp.toLocaleString('es-CL');
-    document.getElementById('tA').textContent='$'+sa.toLocaleString('es-CL');
+    document.getElementById('sC').textContent=Math.max(0,20-t);
     document.getElementById('tG').textContent='$'+(sp+sa).toLocaleString('es-CL');
   }
   function fil(e,btn){
